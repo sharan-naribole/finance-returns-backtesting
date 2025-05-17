@@ -1,54 +1,25 @@
-# README Template
+# Evaluating and Backtesting a Dynamic Investment Strategy: Udacity AI Trading Strategies Nanodegree Project
 
-Below is a template provided for use when building your README file for students.
+This repo is a fork of `udacity/CD13641-Project` repo. The parent repo is part of Udacity AI Trading Strategies Nanodegree Course 4: Evaluating Returns and Backtesting. This repo includes Exercises and skeleton Jupyter notebook for project Data Transformation for Trading Models
 
-# Project Title
+The key modifications in this fork repo include:
+- Updated repo [README](https://github.com/sharan-naribole/finance-data-exploration/blob/main/README.md)
+- Completed Project [Jupyter Notebook](https://github.com/sharan-naribole/finance-data-exploration/blob/main/Project/Preparing-for-data-analysis-project-student.ipynb)
 
-Project description goes here.
+This project offers practical training on 
+- Downloading financial data for assets composing a custom portfolio
+- Computing risk-parity weights based on the underlying assets' volatility
+- Evaluate portfolio performance with key metrics like annualized returns, skewness, Sharpe ratio, etc.
 
-## Getting Started
+## Project Dependencies
 
-Instructions for how to get a copy of the project running on your local machine.
+## Portfolio Composition
 
-### Dependencies
+## Portfolio Asset Characteristics
 
-```
-Examples here
-```
+## Risk Parity Weights
 
-### Installation
-
-Step by step explanation of how to get a dev environment running.
-
-List out the steps
-
-```
-Give an example here
-```
-
-## Testing
-
-Explain the steps needed to run any automated tests
-
-### Break Down Tests
-
-Explain what each test does and why
-
-```
-Examples here
-```
-
-## Project Instructions
-
-This section should contain all the student deliverables for this project.
-
-## Built With
-
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
-
-Include all items used to build project.
+## Portfolio Performance
 
 ## License
 
