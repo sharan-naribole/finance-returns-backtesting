@@ -50,14 +50,26 @@ pip install -r requirements.txt
 
 - **Assets Used:** AGG (bonds), GLD (gold), QQQ (tech equities)
 - **Source:** Historical daily price data collected using the [`yfinance`](https://github.com/ranaroussi/yfinance) Python package.
+- **Risk-Free Rate:**
+  - Collected via `yfinance` using the `^IRX` ticker (13-week Treasury Bill rate) or another relevant Treasury yield.
+  - Used as a benchmark for excess returns and risk-adjusted metrics (e.g., Sharpe, Sortino ratios).
 - **Frequency:** Data is initially collected at daily granularity, then resampled for monthly analysis.
+
+![Portfolio Assets Variation](Project/images/assets-variation.svg)
+
+> Above chart highlights the distinct growth and drawdowns of individual assets part of considered portfolio.
+
+![Risk Free Rate Variation](Project/images/risk-free-rate-variation.svg)
+
+> Above chart highlights the periods of low interest rates.
 
 ---
 
 ## 🧹 Data Preparation for Portfolio Analysis
 
 - **Resampling:**  
-  Asset prices are resampled to **monthly frequency** for consistent portfolio evaluation.
+  - Asset prices and risk-free rate data are resampled to **monthly frequency** for consistent portfolio evaluation.
+  - For the risk-free rate, the last available daily value for each month is used, aligning exactly with portfolio return periods.
 - **Volatility Calculation:**  
   Rolling standard deviations (e.g., 36-month window) are computed to estimate each asset’s risk over time.
 - **Risk Parity Weights Generation:**  
@@ -73,8 +85,8 @@ Key performance and risk metrics computed include:
 - **Annualized Volatility:** Standard deviation of annualized returns.
 - **Downside Volatility:** Standard deviation considering only negative returns.
 - **Max Drawdown:** Largest observed peak-to-trough decline.
-- **Sharpe Ratio:** Risk-adjusted return above risk-free rate.
-- **Sortino Ratio:** Risk-adjusted return considering only downside risk.
+- **Sharpe Ratio:** Risk-adjusted return above the **monthly risk-free rate**.
+- **Sortino Ratio:** Risk-adjusted return considering only downside risk, using the risk-free rate.
 - **Calmar Ratio:** Return-to-drawdown efficiency.
 - **Value-at-Risk (VaR):** Estimated loss in worst-case scenario at a confidence level.
 - **Conditional Value-at-Risk (CVaR):** Average loss in extreme scenarios beyond VaR.
@@ -82,6 +94,16 @@ Key performance and risk metrics computed include:
 - **Excess Return:** Return above the risk-free benchmark.
 
 ---
+
+## ⚖️ Example: Risk Parity Analysis
+
+![Risk Parity Weights Variation](Project/images/risk-parity-weights-variation.svg)
+
+> Above chart highlights the dynamism in risk parity weights over time based on rolling volatility.
+
+![Risk Parity Returns and Drawdowns](Project/images/risk-parity-returns.svg)
+
+> Above chart highlights the periods of low interest rates.
 
 ## ⚖️ Example: Fixed Weight vs Risk Parity Comparison
 
@@ -99,18 +121,16 @@ Both a **dynamic (Risk Parity)** and a **static (Fixed Weight)** strategy are im
 | CVaR              | **3.57%**   | 4.04%        |
 | Excess Return     | 5.16%       | **5.50%**    |
 
-### Example Visualization
+![Risk Parity vs Fixed Weight](Project/images/risk-parity-vs-fixed-weight.svg)
 
-![Cumulative Returns Comparison](path/to/cumulative_returns_comparison.png)
-
-> The cumulative returns chart above highlights how each approach performs through bull and bear markets, helping visualize both growth and drawdowns.
+> Above metrics highlight the higher returns in Fixed Weight at the cost of increased downside volatility.
 
 ---
 
 ## 📝 Conclusion
 
 - This project walks you through a practical, modern workflow for evaluating and backtesting investment strategies.
-- Learn to measure risk, calculate key performance indicators, and visualize results—all with open-source Python tools.
+- Learn to measure risk, calculate key performance indicators (using the risk-free rate), and visualize results—all with open-source Python tools.
 - Use this codebase as a foundation for your own research or portfolio optimization projects.
 
 ---
