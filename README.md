@@ -101,7 +101,7 @@ Key performance and risk metrics computed include:
 
 > Above chart highlights the dynamism in risk parity weights over time based on rolling volatility.
 
-![Risk Parity Returns and Drawdowns](Project/images/risk-parity-returns.svg)
+![Risk Parity Returns and Drawdowns](Project/images/risk-parity-drawdowns.svg)
 
 > Above chart highlights the periods of low interest rates.
 
